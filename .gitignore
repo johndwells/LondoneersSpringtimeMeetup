@@ -1,12 +1,12 @@
 .DS_Store
 
-# Images
-images/avatars/
-images/captchas/
-images/smileys/
-images/member_photos/
-images/signature_attachments/
-images/pm_attachments/
+system/
+config/
+!public_html/
+public_html/*
+!public_html/assets/
+public_html/secure/*
+public_html/static/*
 
 # Caches
 sized/

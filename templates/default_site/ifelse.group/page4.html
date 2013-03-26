@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Springtime Meetup - LondonEErs</title>
+  <link rel="stylesheet" href="/assets/css/londoneers.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="row">
+        <div class="span12">
+          <h1 class="text-center">Advanced Conditionals as Tag Parameters</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8 offset2">
+
+	    <h3>EECMS seems to like "hidden features". Is there one here that can help?</h3>
+
+		<blockquote><pre><code>/* ---------------------------------
+/*  Plugin as Parameter
+/*
+/*  - Example: channel="&#123;exp:some_plugin&#125;"
+/*  - A bit of a hidden feature.  Has been tested but not quite
+/*  ready to say it is ready for prime time as I might want to 
+/*  move it to earlier in processing so that if there are 
+/*  multiple plugins being used as parameters it is only called
+/*  once instead of for every single parameter. - Paul
+/* ---------------------------------*/
+
+if (substr_count($this->tag_data[$i]['tag'], LD.'exp') > 1 &&
+    isset($this->tag_data[$i]['params']['parse']) &&
+    $this->tag_data[$i]['params']['parse'] == 'inward')
+&#123;
+....
+<strong>$this->log_item("Plugin in Parameter, Processing Plugin First");</strong>
+&#125;</code></pre>
+			<p><small><code>/system/expressionengine/library/Template.php, line 1054</code></small></p>
+			</blockquote>
+     
+		</div>
+	</div>
+
+    <div class="page-header">
+        <p class="text-center">
+          <br><a href="{path="ifelse/page3"}">back</a>&nbsp;-&nbsp;
+          <a class="btn btn-primary" href="{path="ifelse/page5"}">So you're saying there's a chance...</a></p>
+    </div>
+  </div>
+</body>
+</html>

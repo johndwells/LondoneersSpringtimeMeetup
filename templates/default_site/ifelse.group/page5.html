@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Springtime Meetup - LondonEErs</title>
+  <link rel="stylesheet" href="/assets/css/londoneers.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="row">
+        <div class="span12">
+          <h1 class="text-center">Advanced Conditionals as Tag Parameters</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8 offset2">
+
+	    <h3>Mark Croxton <small>(what is it with this guy?)</small></h3>
+
+	    <ul>
+	    	<li><a href="http://github.com/croxton/Stash">Stash</a> - stash text and snippets of code for reuse throughout your templates.</li>
+	    	<li><a href="http://github.com/croxton/ifElse">ifElse</a> - early parsing of advanced conditionals in EE templates.</li>
+	    </ul>
+
+	    <hr>
+
+		<blockquote>
+			<p><strong>ifElse:</strong> Early parsing of advanced conditionals in EE templates.</p>
+
+			<pre><code>&#123;exp:ifelse parse="inward"&#125;
+	&#123;if member_id == '1' OR group_id == '2'&#125;
+		Admin content
+	&#123;if:elseif logged_in&#125;
+		Member content
+	&#123;if:else&#125;
+		Public content
+	&#123;/if&#125;
+&#123;/exp:ifelse&#125;</code></pre>
+		</blockquote>
+
+      </div>
+    </div>
+
+    <div class="page-header">
+        <p class="text-center">
+          <br><a href="{path="ifelse/page4"}">back</a>&nbsp;-&nbsp;
+          <a class="btn btn-primary" href="{path="ifelse/page6"}">See it to believe it</a></p>
+    </div>
+  </div>
+</body>
+</html>

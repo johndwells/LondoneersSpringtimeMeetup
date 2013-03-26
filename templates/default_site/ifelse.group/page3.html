@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Springtime Meetup - LondonEErs</title>
+  <link rel="stylesheet" href="/assets/css/londoneers.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="row">
+        <div class="span12">
+          <h1 class="text-center">Advanced Conditionals as Tag Parameters</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8 offset2">
+
+	    <h3>Demo: Simple Conditionals as Tag Parameters</h3>
+
+        <blockquote><pre><code>&#123;exp:channel:entries
+    limit="3"
+    status="&#123;if segment_3 == "featured"&#125;featured&#123;/if&#125;"&#125;
+    &#123;title&#125; - &#123;status&#125;&lt;br&gt;
+&#123;/exp:channel:entries&#125;</code></pre></blockquote>
+
+	    <h4>What happens when this is run?
+	    	{if segment_3 == ""}
+		    	<small><a href="{path="ifelse/page3/featured"}">toggle</a></small>
+		    {if:else}
+		    	<small><a href="{path="ifelse/page3"}">toggle</a></small>
+		    {/if}
+		</h4>
+
+	    <blockquote><pre><code>{exp:channel:entries limit="3" status="{if segment_3 == "featured"}featured{/if}"}{title} - {status}<br>{/exp:channel:entries}</code></pre></blockquote>
+		<hr>
+
+	    <h3>Demo: Advanced Conditionals as Tag Parameters</h3>
+
+	    <blockquote><pre><code>&#123;exp:channel:entries
+	limit="3"
+	status="&#123;if get:status&#125;&#123;get:status&#125;&#123;if:else&#125;open&#123;/if&#125;"&#125;
+	&#123;title&#125; - &#123;status&#125;&lt;br&gt;
+&#123;/exp:channel:entries&#125;</code></pre></blockquote>
+
+	    <h4>What happens when this is run?
+	    	{if get:status == "featured"}
+		    	<small><a href="?">toggle</a></small>
+	    	{if:else}
+		    	<small><a href="?status=featured">toggle</a></small>
+	    	{/if}
+	    </h4>
+
+	    <blockquote><pre><code>{exp:channel:entries limit="3" status="{if get:status}{get:status}{if:else}open{/if}"}
+{title} - {status}{/exp:channel:entries}</code></pre></blockquote>
+		<hr>
+
+		<p>That's right, nothing. Because Channel Entries is looking for a status that matches "(if get:status)(get:status)(if:else)open(/if)".</p>
+
+		</div>
+	</div>
+
+    <div class="page-header">
+	    <p class="text-center">
+	        <br><a href="{path="ifelse/page2"}">back</a>&nbsp;-&nbsp;
+	    	<a class="btn btn-primary" href="{path="ifelse/page4"}">Click if you think that is absurd.</a></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Springtime Meetup - LondonEErs</title>
+  <link rel="stylesheet" href="/assets/css/londoneers.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="row">
+        <div class="span12">
+          <h1 class="text-center">Advanced Conditionals as Tag Parameters <small><br>They said it couldn't be done.</small></h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8 offset2">
+
+        <h3>Can it be done? Let's ask Google:</h3>
+        <br>
+
+        <ul>
+          <li><a href="http://ellislab.com/forums/viewthread/204166/#954620">Using conditionals in channel entries parameters</a></li>
+          <li><a href="http://ellislab.com/forums/viewthread/156254/#755616">Conditionals inside of tag parameters?</a></li>
+          <li><a href="http://expressionengine.stackexchange.com/questions/1580/using-mo-variables-in-module-tag-parameters">Using Mo' Variables in Module Tag Parameters</a></li>
+        </ul>
+
+        <blockquote><pre><code>&#123;exp:channel:entries
+    status="&#123;if get:status&#125;&#123;get:status&#125;&#123;if:else&#125;open&#123;/if&#125;"&#125;
+    &#123;title&#125; - &#123;status&#125;&lt;br&gt;
+&#123;/exp:channel:entries&#125;</code></pre></blockquote>
+
+        <hr>
+
+        <blockquote>
+          <p>"This obviously doesn't work due to advanced conditionals being parsed late (sigh)".</p>
+        </blockquote>
+
+      </div>
+    </div>
+
+    <div class="page-header">
+      <p class="text-center"><br><a class="btn btn-primary" href="{path="ifelse/page2"}">Not possible. Or is it?</a></p>
+    </div>
+  </div>
+</body>
+</html>

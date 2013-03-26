@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Springtime Meetup - LondonEErs</title>
+  <link rel="stylesheet" href="/assets/css/londoneers.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="row">
+        <div class="span12">
+          <h1 class="text-center">Advanced Conditionals as Tag Parameters</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8 offset2">
+
+		<h2>Before</h2>
+
+	    <blockquote><pre><code>&#123;exp:channel:entries
+	limit="3"
+	status="&#123;if get:status&#125;&#123;get:status&#125;&#123;if:else&#125;open&#123;/if&#125;"&#125;
+	&#123;title&#125; - &#123;status&#125;&lt;br&gt;
+&#123;/exp:channel:entries&#125;</code></pre></blockquote>
+
+		<h2>After</h2>
+
+	    <blockquote><pre><code>&#123;exp:channel:entries
+	limit="3"
+	<strong class="text-success">parse="inward"</strong>
+	status="<strong class="text-success">&#123;exp:ifelse&#125;</strong>&#123;if get:status&#125;&#123;get:status&#125;&#123;if:else&#125;open&#123;/if&#125;<strong class="text-success">&#123;/exp:ifelse&#125;</strong>"&#125;
+	&#123;title&#125; - &#123;status&#125;&lt;br&gt;
+&#123;/exp:channel:entries&#125;</code></pre></blockquote>
+
+	    <h4>What happens when this is run?
+	    	{if get:status == "featured"}
+		    	<small><a href="?">toggle</a></small>
+	    	{if:else}
+		    	<small><a href="?status=featured">toggle</a></small>
+	    	{/if}
+	    </h4>
+
+	    <blockquote><pre><code>{exp:channel:entries limit="3" parse="inward" status="{exp:ifelse}{if get:status}{get:status}{if:else}open{/if}{/exp:ifelse}"}{title} - {status}<br>{/exp:channel:entries}</code></pre></blockquote>
+		<hr>
+
+		</div>
+      </div>
+    </div>
+
+    <div class="page-header">
+        <p class="text-center">
+          <br><a href="{path="ifelse/page4"}">back</a></p>
+    </div>
+  </div>
+</body>
+</html>

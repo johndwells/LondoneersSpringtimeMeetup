@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Springtime Meetup - LondonEErs</title>
+  <link rel="stylesheet" href="/assets/css/londoneers.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <div class="row">
+        <div class="span12">
+          <h1 class="text-center">Advanced Conditionals as Tag Parameters</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8 offset2">
+
+	    <h3>First, let's be clear what we're talking about</h3>
+
+		<dl>
+			<dt>Simple Conditionals - fashionably early</dt>
+			<dd>
+				<p>A conditional is considered "simple" if it is evaluating variables that are <strong>already available by the time the template parsing engine reaches the simple conditionals parsing stage (e.g. segment, embed, and global variables)</strong>, the expression evaluates a single variable (i.e. contains no logical operators such as OR, AND), and the conditional does not make use of the else or elseif control structures. In short, a simple conditional will look very much like this:</p>
+				<blockquote><code>&#123;if username == "joe"&#125; &lt;h1&gt;Hi Joe!&lt;/h1&gt;  &#123;/if&#125;</code></blockquote>
+			</dd>
+			<dt>Advanced Conditionals - (un)fashionably late</dt>
+			<dd>
+        <p>Any conditional that isn't a simple conditional is considered an "advanced" conditional and is evaluated much later in the template parsing order. More advanced conditionals can use logical operators (ex: OR, AND) to compare multiple variables to multiple values.</p>
+			</dd>
+		</dl>
+
+		<p>The takeaway from this is that you can use a Simple Conditional as part of a tag parameter, since the conditional will be evaluated prior to the tag being run. However since Advanced Conditionals are parsed late, <em class="text-error">the tag parameter value will be the complete, un-evaluated Advanced Conditional string.</em></p>
+
+	  </div>
+	</div>
+
+    <div class="page-header">
+      <p class="text-center">
+        <br><a href="{path="ifelse/index"}">back</a>&nbsp;-&nbsp;
+        <a class="btn btn-primary" href="{path="ifelse/page3"}">Show me</a></p>
+    </div>
+  </div>
+</body>
+</html>
